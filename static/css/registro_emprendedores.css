@@ -1,0 +1,743 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+    box-sizing: border-box;
+    transition: 0.6s;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-verde-sena: #39A900;
+    --blanco: #F6F6F6;
+    --verde-oscuro: #007832;
+    --verde-claro: #9EE37D;
+    --texto-negro: #1A1A1A;
+    --texto-gris: #6F6F6F;
+    --gris-claro: #C9C9C9;
+    --texto-verde-oscuro: #062606;
+    --blanco-total: #FFFFFF;
+    --opacidad-pantalla: rgba(184, 184, 184, 0.589);
+    --texto-casi-negro: #2D3748;
+    --bordes-input: #D1D5DB;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-family: "Work Sans", system-ui, -apple-system, Roboto, Ubuntu Arial, sans-serif;
+    background: url(../img/postits.jpg) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100%;
+    z-index: 1;
+}
+
+#caja_padre {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+    #caja_padre #encabezado {
+        position: fixed;
+        top: 0;
+        background: var(--blanco);
+        width: 100%;
+        display: flex;
+        z-index: 100;
+    }
+
+        #encabezado #cont_encabezado {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+            #cont_encabezado #caja_separadora {
+                display: flex;
+            }
+
+            #caja_separadora #medalla_programa {
+                margin-right: 20px;
+                z-index: 101;
+            }
+
+            #cont_encabezado #texto_programa {
+                position: absolute;
+                width: 75%;
+                top: 100%;
+                margin-top: 2px;
+                font-size: 11px;
+                left: 60%;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid var(--verde-claro);
+                transform: translatex(-50%);
+                background: var(--blanco);
+                z-index: 101;
+            }
+
+            #caja_separadora #volver_inicio {
+                background: var(--verde-oscuro);
+                font-size: 13px;
+                font-weight: bold;
+                border-radius: 99px;
+                text-decoration: none;
+                color: var(--blanco-total);
+                padding: 8px;
+                margin-right: 5px;
+            }
+
+    #caja_padre #pagina_principal {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        z-index: 3;
+    }
+
+        #pagina_principal #tarjeta_informacion {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 15%;
+            width: 90%;
+            border-radius: 16px;
+            background: var(--blanco-total);
+            padding: 15px;
+            border: 3px solid var(--color-verde-sena);
+        }
+
+            #tarjeta_informacion h2 {
+                font-size: 1rem;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            #tarjeta_informacion #texto_1 {
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 2px;
+            }
+
+            #tarjeta_informacion #texto_2 {
+                line-height:1.4;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+
+            #tarjeta_informacion #texto_3 {
+                line-height: 1.4;
+                text-align: center;
+            }
+
+        #pagina_principal #contenido_registro {
+            width: 90%;
+            background: var(--blanco);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 16px;
+            padding: 15px;
+            margin-top: 50px;
+        }
+        
+        #contenido_registro h1 {
+            text-align: center;
+            font-size: 1.28rem;
+            color: #157a24;
+            margin-bottom: 22px;
+            font-weight: 800;
+        }
+
+            #contenido_registro #cont_progreso {
+                width: 95%;
+                position: relative;
+            }
+
+
+            #cont_progreso {
+                width: 100%;
+                max-width: 760px;
+                margin: 18px auto 22px;
+            }
+
+            #Barra_progreso {
+                height: 9px;
+                background: #ddd;
+                border-radius: 3px;
+                overflow: hidden;
+            }
+
+                #progreso_total-fill {
+                    height: 100%;
+                    width: 0%;
+                    background: linear-gradient(90deg, #39a900, #007832);
+                    transition: width .4s ease;
+                }
+
+            #caja_progreso {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 6px;
+            }
+
+                #caja_progreso .step {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    background: #e1e1e1;
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: .8rem;
+                    font-weight: 700;
+                }
+
+                #caja_progreso .step.active {
+                    background: #39a900;
+                }
+
+                #contenido_registro h1 {
+                    font-size: 1.4rem;
+                    text-align: center;
+                    margin-bottom: 15px;
+                    color: var(--verde-oscuro);
+                }
+
+                #cont_progreso #caja_progreso {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 30px 0;
+                }   
+
+                    #caja_progreso .step {
+                        background: var(--gris-claro);
+                        color: var(--blanco-total);
+                        padding: 3px;
+                        width: 28px;
+                        display: flex;
+                        height: 28px;
+                        border: none;
+                        border-radius: 99px;
+                        font-weight: bold;
+                        align-items: center;
+                        font-size: 13px;
+                        justify-content: center;
+                    }
+
+            #contenido_registro #formulario {
+                width: 100%;
+                display: flex;
+            }
+
+                #formulario #fase_1 {
+                    width: 90%;
+                    left: 50%;
+                    position: relative;
+                    transform: translateX(-50%);
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                    #fase_1 h3 {
+                        font-size: 1.3rem;
+                        text-align: center;
+                        margin-bottom: 20px;
+                        color: var(--verde-oscuro);
+                    }
+
+                        #cont_fase_1 #grupos {
+                            display: flex;
+                            flex-direction: column;
+                        }
+
+                            #grupos #caja {
+                                display: flex;
+                                flex-direction: column;
+                            }
+
+                                #caja label {
+                                    margin:20px 0 5px 0;
+                                    font-weight: 600;
+                                    font-size: 15px;
+                                    color: var(--texto-verde-oscuro);
+                                }
+
+                                #caja input {
+                                    border: 2px solid var(--color-verde-sena);
+                                    border-radius: 8px;
+                                    height: 45px;
+                                    padding: 5px;
+                                    font-size: 15px;
+                                    outline: none;
+                                }
+
+                                #caja select {
+                                    border: 2px solid var(--color-verde-sena);
+                                    border-radius: 8px;
+                                    height: 45px;
+                                    font-size: 15px;
+                                    outline: none;
+                                    padding: 5px;
+                                }
+
+                    #fase_1 #btn_fase1 {
+                        background: var(--verde-oscuro);
+                        border: none;
+                        width: 100%;
+                        height: 50px;
+                        text-align: center;
+                        color: var(--blanco-total);
+                        font-size: 16px;
+                        font-weight: bold;
+                        border-radius: 99px;
+                        margin: 30px 0 10px 0;
+                    }
+
+                #formulario #fase_2 {
+                    width: 90%;
+                    left: 50%;
+                    position: relative;
+                    transform: translateX(-50%);
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #formulario #fase_2 {
+                    display: none;
+                }
+
+                    #fase_2 h3 {
+                        font-size: 1.3rem;
+                        text-align: center;
+                        margin-bottom: 20px;
+                        color: var(--verde-oscuro);
+                    }
+
+                    #fase_2 #cont_fase_2 {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    #cont_fase_2 label {
+                        margin:20px 0 5px 0;
+                        font-weight: 600;
+                        font-size: 15px;
+                        color: var(--texto-verde-oscuro);
+                    }
+
+                    #cont_fase_2 input,select,span {
+                        border: 2px solid var(--color-verde-sena);
+                        border-radius: 8px;
+                        height: 45px;
+                        padding: 5px;
+                        font-size: 15px;
+                        outline: none;
+                    }
+
+                    span {
+                        padding: 5px;
+                        text-align: left;
+                        padding-top: 12px;
+                        font-size: 15px;
+                    }
+
+                #fase_2 #navegacion_botones {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin: 30px 0 10px ;
+                }
+
+                    #navegacion_botones #btn_volver {
+                        height: 50px;
+                        width: 25%;
+                        align-items: center;
+                        background: var(--verde-oscuro);
+                        border: none;
+                        border-radius: 99px;
+                    }
+
+                    #navegacion_botones #btn_fase2 {
+                        height: 50px;
+                        width: 50%;
+                        align-items: center;
+                        background: var(--verde-oscuro);
+                        border: none;
+                        border-radius: 99px;
+                        color: var(--blanco-total);
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
+
+                #formulario #fase_3 {
+                    width: 90%;
+                    left: 50%;
+                    position: relative;
+                    transform: translateX(-50%);
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #formulario #fase_3 {
+                    display: none;
+                }
+
+                    #fase_3 h3 {
+                        font-size: 1.3rem;
+                        text-align: center;
+                        margin-bottom: 20px;
+                        color: var(--verde-oscuro);
+                    }
+
+                    #fase_3 #cont_fase_3 {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                        #cont_fase_3 label {
+                            margin:20px 0 5px 0;
+                            font-weight: 600;
+                            font-size: 15px;
+                            color: var(--texto-verde-oscuro);
+                        }
+
+                    #cont_fase_3 select {
+                        border: 2px solid var(--color-verde-sena);
+                        border-radius: 8px;
+                        height: 45px;
+                        padding: 5px;
+                        font-size: 15px;
+                        outline: none;
+                    }
+
+                #fase_3 #navegacion_botones {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin: 30px 0 10px ;
+                }
+
+                    #navegacion_botones #btn_volver {
+                        height: 50px;
+                        width: 25%;
+                        align-items: center;
+                        background: var(--verde-oscuro);
+                        border: none;
+                        border-radius: 99px;
+                    }
+
+                    #navegacion_botones #btn_fase3 {
+                        height: 50px;
+                        width: 50%;
+                        align-items: center;
+                        background: var(--verde-oscuro);
+                        border: none;
+                        border-radius: 99px;
+                        color: var(--blanco-total);
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
+
+                #formulario #fase_4 {
+                    width: 90%;
+                    left: 50%;
+                    position: relative;
+                    transform: translateX(-50%);
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #formulario #fase_4 {
+                    display: none;
+                }
+
+                    #fase_4 h3 {
+                        font-size: 1.3rem;
+                        text-align: center;
+                        margin-bottom: 20px;
+                        color: var(--verde-oscuro);
+                    }
+
+                    #fase_4 #cont_fase_4 {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                        #cont_fase_4 label {
+                            margin:20px 0 5px 0;
+                            font-weight: 600;
+                            font-size: 15px;
+                            color: var(--texto-verde-oscuro);
+                        }
+
+                    #cont_fase_4 select,input {
+                        border: 2px solid var(--color-verde-sena);
+                        border-radius: 8px;
+                        height: 45px;
+                        padding: 5px;
+                        font-size: 15px;
+                        outline: none;
+                    }
+
+                #fase_4 #navegacion_botones {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin: 30px 0 10px ;
+                }
+
+                    #navegacion_botones #btn_volver {
+                        height: 50px;
+                        width: 25%;
+                        align-items: center;
+                        background: var(--verde-oscuro);
+                        border: none;
+                        border-radius: 99px;
+                    }
+
+                    #navegacion_botones #btn_fase4 {
+                        height: 50px;
+                        width: 50%;
+                        align-items: center;
+                        background: var(--verde-oscuro);
+                        border: none;
+                        border-radius: 99px;
+                        color: var(--blanco-total);
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
+
+                #formulario #fase_5 {
+                    width: 90%;
+                    left: 50%;
+                    position: relative;
+                    transform: translateX(-50%);
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #formulario #fase_5 {
+                    display: none;
+                }
+
+                    #fase_5 h3 {
+                        font-size: 1.3rem;
+                        text-align: center;
+                        margin-bottom: 20px;
+                        color: var(--verde-oscuro);
+                    }
+
+                    #fase_5 #cont_fase_5 {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                        #cont_fase_5 label {
+                            margin:20px 0 5px 0;
+                            font-weight: 600;
+                            font-size: 15px;
+                            color: var(--texto-verde-oscuro);
+                        }
+
+                    #cont_fase_5 select {
+                        border: 2px solid var(--color-verde-sena);
+                        border-radius: 8px;
+                        height: 45px;
+                        padding: 5px;
+                        font-size: 15px;
+                        outline: none;
+                    }
+
+                #fase_5 #navegacion_botones {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin: 30px 0 10px ;
+                }
+
+                    #navegacion_botones #btn_volver {
+                        height: 50px;
+                        width: 25%;
+                        align-items: center;
+                        background: var(--verde-oscuro);
+                        border: none;
+                        border-radius: 99px;
+                    }
+
+                    #navegacion_botones #btn_fase5 {
+                        height: 50px;
+                        width: 50%;
+                        align-items: center;
+                        background: var(--verde-oscuro);
+                        border: none;
+                        border-radius: 99px;
+                        color: var(--blanco-total);
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
+
+                #formulario #fase_6 {
+                    width: 90%;
+                    left: 50%;
+                    position: relative;
+                    transform: translateX(-50%);
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #formulario #fase_6 {
+                    display: none;
+                }
+
+                    #fase_6 h3 {
+                        font-size: 1.3rem;
+                        text-align: center;
+                        margin-bottom: 20px;
+                        color: var(--verde-oscuro);
+                    }
+
+                    #fase_6 #cont_fase_6 {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                        #cont_fase_6 label {
+                            margin:20px 0 5px 0;
+                            font-weight: 600;
+                            font-size: 15px;
+                            color: var(--texto-verde-oscuro);
+                        }
+
+                    #cont_fase_6 select {
+                        border: 2px solid var(--color-verde-sena);
+                        border-radius: 8px;
+                        height: 45px;
+                        padding: 5px;
+                        font-size: 15px;
+                        outline: none;
+                    }
+
+                #fase_6 #navegacion_botones {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin: 30px 0 10px ;
+                }
+
+                    #navegacion_botones #btn_volver {
+                        height: 50px;
+                        width: 20%;
+                        align-items: center;
+                        background: var(--verde-oscuro);
+                        border: none;
+                        border-radius: 99px;
+                    }
+
+                    #navegacion_botones #btn_fase6 {
+                        height: 50px;
+                        width: 60%;
+                        align-items: center;
+                        background: var(--verde-oscuro);
+                        border: none;
+                        border-radius: 99px;
+                        color: var(--blanco-total);
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
+
+    #caja_padre #pie_pagina {
+        height: 50px;
+        background: var(--blanco);
+        width: 100%;
+        display: block;
+        margin-top: 30px;
+        z-index: 100;
+    }
+
+        #pie_pagina #cont_pie_pagina {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+
+@media screen and (min-width: 650px){
+
+        #pagina_principal #tarjeta_informacion {
+            margin-top: 10%;
+            width: 80%;
+        }
+
+        #pagina_principal #contenido_registro {
+            width: 80%;
+        }
+
+            #fase_1 #cont_fase_1 {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            #cont_fase_1 #grupos {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            #grupos #caja {
+                width: 48%;
+            }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    #caja_padre #pagina_principal {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+        #pagina_principal #tarjeta_informacion {
+            width: 25%;
+            left: 0;
+            position: relative;
+            margin-top: 0;
+            max-height: max-content;
+            transform: translate(0);
+            margin-right: 30px;
+            font-size: 15px;
+        }
+
+        #pagina_principal #contenido_registro {
+            width: 45%;
+            left: 0;
+            transform: translate(0);
+            max-height: max-content;
+            margin-left: 30px;
+        }
+
+            #tarjeta_informacion h2 {
+                font-size: 1.2rem;
+            }   
+}
